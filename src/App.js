@@ -8,6 +8,7 @@ import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import { useState } from "react";
 import Home from "./components/Home";
+// import Footer from "./components/Footer";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -38,6 +39,7 @@ function App() {
               />
             </Routes>
           </div>
+          {/* <Footer /> */}
         </Router>
       </PassState>
     </>

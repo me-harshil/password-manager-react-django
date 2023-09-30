@@ -54,4 +54,4 @@ class PasswordDetailView(APIView):
         # Delete a specific password for the logged-in user
         password = self.get_object(pk)
         password.delete()
-        return Response({"msg":"Password delete Succesfully"},status=status.HTTP_200_OK)
+        return Response({"msg": "Password delete Succesfully"}, status=status.HTTP_200_OK)

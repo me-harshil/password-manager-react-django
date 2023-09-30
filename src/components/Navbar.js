@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "./logo.png";
 
 export default function Navbar() {
   const logout = () => {
@@ -13,7 +14,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-          PassTitan
+          <img src={logo} width="425px" height="auto"alt="logo" />
           </Link>
           <button
             className="navbar-toggler"

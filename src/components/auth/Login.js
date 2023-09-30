@@ -29,7 +29,7 @@ export default function Login(props) {
 
   return (
     <div className="container my-4">
-      <h2>Login to continue to MandoBook</h2>
+      <h2>Login to continue to PassTitan</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">

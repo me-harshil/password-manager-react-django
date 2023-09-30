@@ -160,22 +160,38 @@ export default function Passwords(props) {
           </div>
         </div>
       </div>
+
       <div className="container">
         <h2 className="my-3">Your Passwords</h2>
         {passwords.length === 0 && "No passwords to display"}
       </div>
-      <div className="row">
-        {passwords.map((pass) => {
-          return (
-            <PasswordItem
-              password={pass}
-              key={pass.id}
-              editpassword={editpassword}
-              showAlert={props.showAlert}
-            />
-          );
-        })}
-      </div>
+      {passwords.length !== 0 && (
+        <table className="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Index</th>
+              <th scope="col">Website/App Name</th>
+              <th scope="col">Username</th>
+              <th scope="col">Password</th>
+              <th scope="col">Notes</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {passwords.map((pass,index) => {
+              return (
+                <PasswordItem
+                  password={pass}
+                  key={pass.id}
+                  editpassword={editpassword}
+                  showAlert={props.showAlert}
+                  index={index+1}
+                />
+              );
+            })}
+          </tbody>
+        </table>
+      )}
     </>
   );
 }

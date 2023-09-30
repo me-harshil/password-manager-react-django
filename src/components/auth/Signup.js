@@ -30,7 +30,7 @@ export default function Signup(props) {
 
   return (
     <div className="container my-4">
-      <h2>Signup to continue to MandoBook</h2>
+      <h2>Signup to continue to PassTitan</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">

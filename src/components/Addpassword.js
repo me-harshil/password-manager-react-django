@@ -3,6 +3,10 @@ import passContext from "../context/passContext";
 
 export default function Addpassword(props) {
   const { addPassword } = useContext(passContext);
+  const style = {
+    maxWidth: "400px",
+    width: "100%",
+  };
 
   const [password, setPassword] = useState({
     username: "",
@@ -13,7 +17,12 @@ export default function Addpassword(props) {
 
   const handleClick = (e) => {
     e.preventDefault();
-    addPassword(password.username, password.password, password.notes, password.website);
+    addPassword(
+      password.username,
+      password.password,
+      password.notes,
+      password.website
+    );
     setPassword({ username: "", password: "", notes: "", website: "" });
     props.showAlert("Note Added Successfully", "success");
   };
@@ -35,7 +44,8 @@ export default function Addpassword(props) {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control border border-dark"
+            style={style}
             id="website"
             name="website"
             onChange={onChange}
@@ -48,7 +58,8 @@ export default function Addpassword(props) {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control border border-dark"
+            style={style}
             id="username"
             name="username"
             onChange={onChange}
@@ -61,7 +72,8 @@ export default function Addpassword(props) {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control border border-dark"
+            style={style}
             id="password"
             name="password"
             onChange={onChange}
@@ -74,7 +86,8 @@ export default function Addpassword(props) {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control border border-dark"
+            style={style}
             id="notes"
             name="notes"
             onChange={onChange}
@@ -82,7 +95,11 @@ export default function Addpassword(props) {
           />
         </div>
         <button
-          disabled={password.password === "" || password.username === "" || password.website === ""}
+          disabled={
+            password.password === "" ||
+            password.username === "" ||
+            password.website === ""
+          }
           type="submit"
           className="btn btn-primary"
           onClick={handleClick}

@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "./logo-no-background.png";
 
 const About = () => {
   return (
@@ -17,13 +18,12 @@ const About = () => {
             protected at all times.
           </p>
           <p>
-            With PassTitan, you can generate strong, unique passwords for each
-            of your accounts, and access them securely whenever you need.
+            With PassTitan, you can access passwords securely whenever you need.
           </p>
         </div>
         <div className="col-lg-6">
           <img
-            src="path_to_your_image" // Replace with the actual image source
+            src={logo} 
             alt="PassTitan Logo"
             className="img-fluid"
           />
