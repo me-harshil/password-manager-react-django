@@ -4,12 +4,13 @@ from rest_framework.views import APIView
 from rest_framework.generics import get_object_or_404
 from .models import Passwords
 from .serializers import PasswordSerializer
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
+
 
 
 class PasswordListView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
@@ -29,7 +30,7 @@ class PasswordListView(APIView):
 
 
 class PasswordDetailView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get_object(self, pk):

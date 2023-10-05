@@ -4,7 +4,7 @@ import logo from "./logo.png";
 
 export default function Navbar() {
   const logout = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
   };
 
   let location = useLocation();
@@ -14,7 +14,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-          <img src={logo} width="425px" height="auto"alt="logo" />
+            <img src={logo} width="425px" height="auto" alt="logo" />
           </Link>
           <button
             className="navbar-toggler"

@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Signup(props) {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = "http://127.0.0.1:8000/api/user/register/";
@@ -18,11 +23,11 @@ export default function Signup(props) {
       }),
     });
     const response = await data.json();
-    // console.log(response);
     if (response.token) {
       localStorage.setItem("token", response.token);
-      props.showAlert("Account created successfully", "success");
-      navigate("/");
+      localStorage.setItem("email", response.email);
+      props.showAlert("OTP send to your email.", "success");
+      navigate("/verify-email");
     } else {
       props.showAlert("User already exists", "danger");
     }

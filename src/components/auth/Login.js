@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login(props) {
   const navigate = useNavigate();
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = "http://127.0.0.1:8000/api/user/login/";
@@ -17,16 +20,20 @@ export default function Login(props) {
       }),
     });
     const response = await data.json();
-    console.log(response);
     if (response.token) {
       localStorage.setItem("token", response.token);
+      localStorage.setItem("email", response.email);
       props.showAlert("Logged in successfully", "success");
       navigate("/");
+    } else if (response.otpError) {
+      localStorage.clear();
+      props.showAlert("OTP not verified", "danger");
+      navigate("/signup");
     } else {
-      props.showAlert("Invalid Credentials", "danger");
+      localStorage.clear();
+      props.showAlert("Invalid credentials", "danger");
     }
   };
-
   return (
     <div className="container my-4">
       <h2>Login to continue to PassTitan</h2>

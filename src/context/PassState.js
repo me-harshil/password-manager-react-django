@@ -10,7 +10,7 @@ const PassState = (props) => {
     const response = await fetch(url, {
       method: "GET",
       headers: {
-        Authorization: `Token ${localStorage.getItem("token")}`,
+        "Authorization": `Bearer ${localStorage.getItem("token")}`,
       },
     });
     const json = await response.json();
@@ -24,7 +24,7 @@ const PassState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Token ${localStorage.getItem("token")}`,
+        "Authorization": `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({ username, passwordOfWebsite, notes, website }),
     });
@@ -39,7 +39,7 @@ const PassState = (props) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Token ${localStorage.getItem("token")}`,
+        "Authorization": `Bearer ${localStorage.getItem("token")}`,
       },
     });
     const json = await response.json();
@@ -64,7 +64,7 @@ const PassState = (props) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Token ${localStorage.getItem("token")}`,
+        "Authorization": `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({ username, passwordOfWebsite, notes, website }),
     });

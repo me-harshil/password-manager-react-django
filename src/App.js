@@ -8,7 +8,8 @@ import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import { useState } from "react";
 import Home from "./components/Home";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
+import VerifyEmail from "./components/auth/VerifyEmail";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -37,9 +38,13 @@ function App() {
                 path="/signup"
                 element={<Signup showAlert={showAlert} />}
               />
+              <Route
+                path="/verify-email"
+                element={<VerifyEmail showAlert={showAlert} />}
+              />
             </Routes>
           </div>
-          {/* <Footer /> */}
+          <Footer />
         </Router>
       </PassState>
     </>
