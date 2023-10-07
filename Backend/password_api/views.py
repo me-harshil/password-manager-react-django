@@ -6,7 +6,9 @@ from .models import Passwords
 from .serializers import PasswordSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from cryptography.fernet import Fernet
 
+key = Fernet.generate_key()
 
 
 class PasswordListView(APIView):
@@ -23,8 +25,11 @@ class PasswordListView(APIView):
         user = request.user
         serializer = PasswordSerializer(data=request.data)
         if serializer.is_valid():
+            # f = Fernet(key)
+            # serializer.validated_data['passwordOfWebsite'] = f.encrypt(serializer.validated_data['passwordOfWebsite'].encode())
+            # print(serializer.validated_data['passwordOfWebsite'])
             serializer.save(user=request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response({"message": "Password added successfully."}, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

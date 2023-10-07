@@ -23,8 +23,8 @@ export default function Signup(props) {
       }),
     });
     const response = await data.json();
-    if (response.token) {
-      localStorage.setItem("token", response.token);
+    if (response.access) {
+      localStorage.setItem("token", response.access);
       localStorage.setItem("email", response.email);
       props.showAlert("OTP send to your email.", "success");
       navigate("/verify-email");
